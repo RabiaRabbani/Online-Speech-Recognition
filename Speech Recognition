@@ -1,0 +1,11 @@
+import speech_recognition as voice
+r = voice.Recognizer()
+with voice.Microphone() as source:
+    print("Say! I am listening you.....")
+    audio = r.listen(source, timeout=10)
+    try:
+        text = r.recognize_google(audio)
+        print("You are saying.....")
+        print(text)
+    except:
+        print("Sorry..Try Again")
